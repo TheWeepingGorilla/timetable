@@ -8,7 +8,7 @@ class StationsController < ApplicationController
   end
 
   def create
-    @station = Station.new(params[:station])
+    @station = Station.new(station_params)
     if @station.save
       flash[:notice] = "Station created."
       redirect_to stations_path
@@ -41,4 +41,11 @@ class StationsController < ApplicationController
     flash[:notice] = "Station deleted."
     redirect_to stations_path
   end
+
+private
+  def station_params
+    params.require(:station).permit(:name)
+  end
+
+
 end

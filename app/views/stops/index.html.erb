@@ -1,0 +1,9 @@
+<h1>Stops</h1>
+
+<ul>
+  <% @stops.each do |stop| %>
+    <%= link_to "#{(stop.find_station).name}", stop_path(stop), :class=> "btn btn-default btn-sm" %>
+  <% end %>
+</ul>
+
+<%= link_to "New Stop", new_stop_path, :class=> "btn btn-success" %>

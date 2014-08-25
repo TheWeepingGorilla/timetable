@@ -27,7 +27,7 @@ class StationsController < ApplicationController
 
   def update
     @station = Station.find(params[:id])
-    if @station.update(params[:station])
+    if @station.update(station_params)
       flash[:notice] = "Station updated."
       redirect_to station_path(@station)
     else

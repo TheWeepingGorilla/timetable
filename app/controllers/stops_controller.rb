@@ -8,7 +8,7 @@ class StopsController < ApplicationController
   end
 
   def create
-    @stop = Stop.new(params[:stop])
+    @stop = Stop.new(stop_params)
     if @stop.save
       flash[:notice] = "Stop created."
       redirect_to stops_path
@@ -19,6 +19,8 @@ class StopsController < ApplicationController
 
   def show
     @stop = Stop.find(params[:id])
+    @station = Station.find(@stop.station_id)
+    @line = Line.find(@stop.line_id)
   end
 
   def edit
@@ -27,7 +29,7 @@ class StopsController < ApplicationController
 
   def update
     @stop = Stop.find(params[:id])
-    if @stop.update(params[:stop])
+    if @stop.update(stop_params)
       flash[:notice] = "Stop updated."
       redirect_to stop_path(@stop)
     else
@@ -40,5 +42,10 @@ class StopsController < ApplicationController
     @stop.destroy
     flash[:notice] = "Stop deleted."
     redirect_to stops_path
+  end
+
+  private
+  def stop_params
+    params.require(:stop).permit(:station_id, :line_id, line_ids: [], station_ids: [])
   end
 end

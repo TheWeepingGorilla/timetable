@@ -1,7 +1,9 @@
 <h1><%= @line.name %></h1>
 
 <% @stops.each do |stop| %>
-  <%= link_to "#{stop.find_station.name} - #{stop.time}", station_path(stop.find_station.id), :class=> "btn btn-default btn-sm" %>
+  <div class="btn btn-default btn-sm">
+    <%= "#{stop.find_station.name} - #{stop.time}"%>
+  </div>
 <% end %>
 
 <hr>

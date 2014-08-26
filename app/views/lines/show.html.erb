@@ -1,10 +1,11 @@
 <h1><%= @line.name %></h1>
 
-<% @line.stations.each do |station| %>
-  <%= link_to "#{station.name}", station_path(station), :class=> "btn btn-default btn-sm" %>
+<% @stops.each do |stop| %>
+  <%= link_to "#{stop.find_station.name} - #{stop.time}", station_path(stop.find_station.id), :class=> "btn btn-default btn-sm" %>
 <% end %>
 
 <hr>
+<%= link_to "Add Stops", new_stop_path, :class=> "btn btn-info" %>
 <%= link_to "Edit Line", edit_line_path(@line), :class=> "btn btn-success" %>
 
 <%= link_to "Delete", line_path(@line),

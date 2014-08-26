@@ -13,6 +13,7 @@ class StopsController < ApplicationController
       flash[:notice] = "Stop created."
       redirect_to stops_path
     else
+      flash[:alert] = "Please put stuff in properly."
       render 'new'
     end
   end

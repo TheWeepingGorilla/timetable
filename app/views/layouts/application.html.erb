@@ -9,9 +9,16 @@
 <body>
 
 <div class="container">
-  <%= flash[:notice] %>
-  <%= flash[:alert] %>
+
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+  <% end %>
+    <% if flash[:alert] %>
+  <div class="alert alert-danger" role="alert"><%= flash[:alert] %></div>
+  <% end %>
   <%= yield %>
+  <hr>
+  <%= link_to "Home", stations_path, :class=> "btn btn-primary" %>
 </div>
 </body>
 </html>

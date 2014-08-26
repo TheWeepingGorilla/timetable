@@ -19,6 +19,7 @@ class LinesController < ApplicationController
 
   def show
     @line = Line.find(params[:id])
+    @stops = Stop.where(line_id: @line.id)
   end
 
   def edit

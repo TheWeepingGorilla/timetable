@@ -31,8 +31,9 @@ class StopsController < ApplicationController
     @stop = Stop.find(params[:id])
     if @stop.update(stop_params)
       flash[:notice] = "Stop updated."
-      redirect_to stop_path(@stop)
+      redirect_to stops_path
     else
+      flash[:alert] = "Please put stuff in properly."
       render 'edit'
     end
   end

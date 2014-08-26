@@ -8,29 +8,20 @@
 
 <div id="alchemy" class="alchemy" style="width: 300px; height:300px">
   <script>
-       var some_data =
+
+      var limit = <%= Station.all.length %>;
+      var nodes = [];
+      for (i=1;i<=limit;i++) {
+        nodes.push({"id": i});
+      }
+      var edges = [];
+      for (i=1;i<limit;i++) {
+        edges.push({"source": i, "target": (i+1)});
+      }
+      var some_data =
         {
-          "nodes": [
-            {
-              "id": 1
-            },
-            {
-              "id": 2
-            },
-            {
-              "id": 3
-            }
-          ],
-          "edges": [
-            {
-              "source": 1,
-              "target": 2
-            },
-            {
-              "source": 1,
-              "target": 3,
-            }
-          ]
+          "nodes": nodes,
+          "edges": edges
         };
   </script>
 </div>

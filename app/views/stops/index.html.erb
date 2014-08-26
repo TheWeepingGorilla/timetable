@@ -2,7 +2,7 @@
 
 <ul>
   <% @stops.each do |stop| %>
-    <%= link_to "#{stop.find_station.name}", stop_path(stop), :class=> "btn btn-default btn-sm" %>
+    <%= link_to "#{stop.find_station.name}", edit_stop_path(stop), :class=> "btn btn-default btn-sm" %>
   <% end %>
 </ul>
 

@@ -6,6 +6,36 @@
   </div>
 <% end %>
 
+<div id="alchemy" class="alchemy" style="width: 300px; height:300px">
+  <script>
+       var some_data =
+        {
+          "nodes": [
+            {
+              "id": 1
+            },
+            {
+              "id": 2
+            },
+            {
+              "id": 3
+            }
+          ],
+          "edges": [
+            {
+              "source": 1,
+              "target": 2
+            },
+            {
+              "source": 1,
+              "target": 3,
+            }
+          ]
+        };
+  </script>
+</div>
+<script>alchemy.begin({"dataSource": some_data})</script>
+
 <hr>
 <%= link_to "Add Stops", new_stop_path, :class=> "btn btn-info" %>
 <%= link_to "Edit Line", edit_line_path(@line), :class=> "btn btn-success" %>

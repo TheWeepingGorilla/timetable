@@ -4,6 +4,7 @@
     <%= link_to "#{stop.find_line.name} - #{stop.time}", edit_stop_path(stop), :class=> "btn btn-default btn-sm" %>
   <% end %>
 </ul>
+
 <%= link_to "Edit Station", edit_station_path(@station), :class=> "btn btn-success" %>
 
 <%= link_to "Delete", station_path(@station),

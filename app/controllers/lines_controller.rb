@@ -44,6 +44,7 @@ class LinesController < ApplicationController
 
   def destroy
     @line = Line.find(params[:id])
+    Stop.destroy_all(:line_id => @line.id)
     @line.destroy
     flash[:notice] = "Line deleted."
     redirect_to lines_path

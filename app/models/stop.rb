@@ -8,6 +8,10 @@ class Stop < ActiveRecord::Base
     Station.find(self.station_id)
   end
 
+  def find_line
+    Line.find(self.line_id)
+  end
+
 private
   def time_form
     m = /(\d{1,2}:\d{1,2})/.match(self.time)
